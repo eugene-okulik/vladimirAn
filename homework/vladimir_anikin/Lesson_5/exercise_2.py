@@ -1,15 +1,15 @@
 one = "результат операции: 42"
 number_index = one.index(":")
-number = int(one[number_index + 1 :])
+number = int(one[number_index + 1:])  # fmt: skip
 print(number + 10)
 
 
 one = "результат операции: 514"
 number_index = one.index(":")
-number = int(one[number_index + 1 :])
+number = int(one[number_index + 1:])  # fmt: skip
 print(number + 10)
 
 one = "результат работы программы: 9"
 number_index = one.index(":")
-number = int(one[number_index + 1 :])
+number = int(one[number_index + 1:])  # fmt: skip
 print(number + 10)
