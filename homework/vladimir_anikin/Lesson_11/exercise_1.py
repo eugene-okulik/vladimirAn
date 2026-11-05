@@ -19,7 +19,12 @@ book4.is_reserved = True
 library = [book1, book2, book3, book4, book5]
 
 for book in library:
-    base_info = f"Название: {book.name}, Автор: {book.author}, страниц: {book.page_count}, материал: {book.material_page}"
+    base_info = (
+        f"Название: {book.name}, "
+        f"Автор: {book.author}, "
+        f"страниц: {book.page_count}, "
+        f"материал: {book.material_page}"
+    )
 
     if book.is_reserved:
         print(f"{base_info}, зарезервирована")
