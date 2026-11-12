@@ -1,9 +1,10 @@
-insert into students (id, name, second_name, group_id) values (100000,  'Boba', 'Anikin', 25215)
-insert into `groups` (title, start_date, end_date) values ('Test', 'oct 2026', 'nov 2026')
+insert into students (id, name, second_name, group_id) values (100000,  'Boba', 'Anikin', NULL)
 INSERT INTO books (title, taken_by_student_id) VALUES
 ('VI', 100000),
 ('Van', 100000),
 ('Gok', 100000);
+insert into `groups` (title, start_date, end_date) values ('Test', 'oct 2026', 'nov 2026')
+update students set group_id = (select groups.id where title = 'Test' Limit 1) where id = 100000;
 INSERT INTO subjects (title) VALUES 
 ('raz'),
 ('neskolko');
