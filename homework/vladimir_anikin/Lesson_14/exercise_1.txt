@@ -1,0 +1,31 @@
+insert into students (id, name, second_name, group_id) values (100000,  'Boba', 'Anikin', NULL)
+INSERT INTO books (title, taken_by_student_id) VALUES
+('VI', 100000),
+('Van', 100000),
+('Gok', 100000);
+insert into `groups` (title, start_date, end_date) values ('Test', 'oct 2026', 'nov 2026')
+update students set group_id = (select groups.id where title = 'Test' Limit 1) where id = 100000;
+INSERT INTO subjects (title) VALUES 
+('raz'),
+('neskolko');
+INSERT INTO lessons (title, subject_id) VALUES 
+('raz', 3509),
+('dva', 3509),
+('tri', 3510),
+('chetiry', 3510);
+INSERT INTO marks (value, lesson_id, student_id) VALUES 
+(1, 77605, 100000),
+(2, 77606, 100000),
+(3, 77607, 100000),
+(4, 77608, 100000);
+
+SELECT * from marks where student_id = 100000
+SELECT * from books where taken_by_student_id = 100000
+
+Select * from students 
+join `groups` on group_id = `groups`.id
+join books on students.id = taken_by_student_id
+join marks on students.id = student_id
+join lessons on marks.lesson_id = lessons.id 
+join subjects on lessons.subject_id = subjects.id
+where students.id = 100000
