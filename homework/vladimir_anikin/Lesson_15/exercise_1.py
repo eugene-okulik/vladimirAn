@@ -25,11 +25,12 @@ cursor.executemany(
     ],
 )
 cursor.execute(
-    "insert into `groups` (title, start_date, end_date) values ('Test', 'oct 2026', 'nov 2026')"
+    "insert into `groups` (title, start_date, end_date) values (%s, %s, %s)",
+    ("Test", "oct 2026", "nov 2026"),
 )
+group_id = cursor.lastrowid
 cursor.execute(
-    "update students set group_id = (select id from `groups` where title = 'Test' Limit 1) where id = %s",
-    (student_id,),
+    "update students set group_id = %s where id = %s", (group_id, student_id)
 )
 
 
